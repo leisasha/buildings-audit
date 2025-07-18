@@ -1,0 +1,11 @@
+package dzhen.eren.buildingsAudit;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BuildMonitorApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(BuildMonitorApplication.class, args);
+    }
+}
