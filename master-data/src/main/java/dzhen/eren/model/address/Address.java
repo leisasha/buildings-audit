@@ -1,15 +1,13 @@
 package dzhen.eren.model.address;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "address")
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Address {

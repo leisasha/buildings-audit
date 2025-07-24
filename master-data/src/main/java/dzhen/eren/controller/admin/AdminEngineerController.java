@@ -19,18 +19,18 @@ public class AdminEngineerController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public EngineerOutDto create(@Valid @RequestBody EngineerNewDto engineerNewDto) {
-        return engineerService.createEngineer(engineerNewDto);
+        return engineerService.create(engineerNewDto);
     }
 
     @PatchMapping("/{engineerId}")
     @ResponseStatus(HttpStatus.OK)
     public EngineerOutDto update(@Positive @PathVariable Long engineerId, @Valid @RequestBody EngineerInDto engineerInDto) {
-        return engineerService.updateEngineer(engineerId, engineerInDto);
+        return engineerService.update(engineerId, engineerInDto);
     }
 
     @DeleteMapping("/{engineerId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@Positive @PathVariable Long engineerId) {
-        engineerService.deleteEngineer(engineerId);
+        engineerService.delete(engineerId);
     }
 }

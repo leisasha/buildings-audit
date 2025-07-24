@@ -23,9 +23,9 @@ public class PrivateEngineerController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<EngineerOutDto> getEngineers(
+    public List<EngineerOutDto> getAll(
             @RequestParam(defaultValue = "0") int from,
             @RequestParam(defaultValue = "10") int size) {
-        return engineerService.getEngineers(from, size);
+        return engineerService.getAll(from, size);
     }
 }

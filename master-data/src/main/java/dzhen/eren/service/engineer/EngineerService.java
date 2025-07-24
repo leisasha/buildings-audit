@@ -7,13 +7,13 @@ import dzhen.eren.model.engineer.dto.EngineerOutDto;
 import java.util.List;
 
 public interface EngineerService {
-    EngineerOutDto createEngineer(EngineerNewDto engineerNewDto);
+    EngineerOutDto create(EngineerNewDto engineerNewDto);
 
-    EngineerOutDto updateEngineer(Long id, EngineerInDto engineerInDto);
+    EngineerOutDto update(Long id, EngineerInDto engineerInDto);
 
-    void deleteEngineer(Long id);
+    void delete(Long id);
 
-    EngineerOutDto getById(Long engineerId);
+    EngineerOutDto getById(Long id);
 
-    List<EngineerOutDto> getEngineers(int from, int size);
+    List<EngineerOutDto> getAll(int from, int size);
 }

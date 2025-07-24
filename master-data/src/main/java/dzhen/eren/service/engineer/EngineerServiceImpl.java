@@ -22,13 +22,13 @@ import java.util.stream.Collectors;
 public class EngineerServiceImpl implements EngineerService {
     private final EngineerRepository engineerRepository;
 
-    public EngineerOutDto createEngineer(EngineerNewDto engineerNewDto) {
+    public EngineerOutDto create(EngineerNewDto engineerNewDto) {
         return EngineerMapper.engineerToEngineerOutDto(
                 engineerRepository.save(EngineerMapper.engineerNewDtoToEngineer(engineerNewDto))
         );
     }
 
-    public EngineerOutDto updateEngineer(Long id, EngineerInDto engineerInDto) {
+    public EngineerOutDto update(Long id, EngineerInDto engineerInDto) {
         Engineer engineer = engineerRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Engineer not found"));
 
@@ -40,18 +40,18 @@ public class EngineerServiceImpl implements EngineerService {
         return EngineerMapper.engineerToEngineerOutDto(engineerRepository.save(engineer));
     }
 
-    public void deleteEngineer(Long id) {
+    public void delete(Long id) {
         engineerRepository.deleteById(id);
     }
 
-    public EngineerOutDto getById(Long engineerId) {
-        Engineer engineer = engineerRepository.findById(engineerId)
+    public EngineerOutDto getById(Long id) {
+        Engineer engineer = engineerRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Engineer not found"));
 
         return EngineerMapper.engineerToEngineerOutDto(engineer);
     }
 
-    public List<EngineerOutDto> getEngineers(int from, int size) {
+    public List<EngineerOutDto> getAll(int from, int size) {
         Pageable pageable = PageRequest.of(from / size, size, Sort.by("id").ascending());
         Page<Engineer> page = engineerRepository.findAll(pageable);
 
