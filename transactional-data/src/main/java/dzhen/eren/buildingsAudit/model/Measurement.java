@@ -1,5 +1,9 @@
 package dzhen.eren.buildingsAudit.model;
 
+import dzhen.eren.model.building.Building;
+import dzhen.eren.model.engineer.Engineer;
+import dzhen.eren.model.measurementType.MeasurementType;
+import dzhen.eren.model.unit.Unit;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,11 +24,17 @@ public class Measurement {
     private Long id;
 
     private LocalDateTime measurementDate;
-    private String measurementType;
-    private String parameterName;
-    private double parameterValue;
-    private String unit;
+    private String parameterStringValue;
+    private double parameterDoubleValue;
     private String comments;
+
+    @ManyToOne
+    @JoinColumn(name = "measurement_type_id")
+    private MeasurementType measurementType;
+
+    @ManyToOne
+    @JoinColumn(name = "unit_id")
+    private Unit unit;
 
     @ManyToOne
     @JoinColumn(name = "engineer_id")

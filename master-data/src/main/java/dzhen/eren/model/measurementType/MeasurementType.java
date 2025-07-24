@@ -1,4 +1,4 @@
-package dzhen.eren.buildingsAudit.model;
+package dzhen.eren.model.measurementType;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,18 +7,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "engineers")
+@Table(name = "measurement_type")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Engineer {
+public class MeasurementType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String jobTitle;
+    private String name;
 }
