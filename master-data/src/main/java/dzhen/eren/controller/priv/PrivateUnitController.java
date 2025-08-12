@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/private/measurementType")
+@RequestMapping("/private/unit")
 @RequiredArgsConstructor
-public class PrivateUserController {
+public class PrivateUnitController {
     private final UnitService unitService;
 
-    @GetMapping("/{measurementTypeId}")
+    @GetMapping("/{unitId}")
     @ResponseStatus(HttpStatus.OK)
-    public UnitOutDto getById(@Positive @PathVariable Long userId) {
-        return unitService.getById(userId);
+    public UnitOutDto getById(@Positive @PathVariable Long unitId) {
+        return unitService.getById(unitId);
     }
 
     @GetMapping

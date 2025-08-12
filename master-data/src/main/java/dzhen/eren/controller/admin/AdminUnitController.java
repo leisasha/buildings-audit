@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/admin/measurementType")
+@RequestMapping("/admin/unit")
 @RequiredArgsConstructor
 public class AdminUnitController {
     private final UnitService unitService;
@@ -21,15 +21,15 @@ public class AdminUnitController {
         return unitService.create(unitInDto);
     }
 
-    @PatchMapping("/{userId}")
+    @PatchMapping("/{unitId}")
     @ResponseStatus(HttpStatus.OK)
-    public UnitOutDto update(@Positive @PathVariable Long userId, @Valid @RequestBody UnitInDto unitInDto) {
-        return unitService.update(userId, unitInDto);
+    public UnitOutDto update(@Positive @PathVariable Long unitId, @Valid @RequestBody UnitInDto unitInDto) {
+        return unitService.update(unitId, unitInDto);
     }
 
-    @DeleteMapping("/{measurementTypeId}")
+    @DeleteMapping("/{unitId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@Positive @PathVariable Long userId) {
-        unitService.delete(userId);
+    public void delete(@Positive @PathVariable Long unitId) {
+        unitService.delete(unitId);
     }
 }
